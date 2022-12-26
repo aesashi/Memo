@@ -12,11 +12,14 @@ import MemoListScreen from './src/screens/MemoListScreen';
 
 import { firebaseConfig } from './env';
 
-const Stack = createStackNavigator();
+require('firebase/firestore');
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
+
+const Stack = createStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
