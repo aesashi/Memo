@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, StyleSheet, TouchableOpacity,
+  StyleSheet, TouchableOpacity,
 } from 'react-native';
 import { string, shape, func } from 'prop-types';
 import { Feather } from '@expo/vector-icons';

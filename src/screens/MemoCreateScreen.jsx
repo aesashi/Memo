@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
-  View, TextInput, StyleSheet, KeyboardAvoidingView,
+  View, TextInput, StyleSheet, KeyboardAvoidingView, Alert,
 } from 'react-native';
 import firebase from 'firebase';
-import { func } from 'prop-types';
 
 import CircleButton from '../components/CircleButton';
+import { translateErrors } from '../utils';
 
 export default function MemoCreateScreen(props) {
   const { navigation } = props;
@@ -25,6 +25,8 @@ export default function MemoCreateScreen(props) {
       })
       .catch((error) => {
         console.log('Error', error);
+        const errrorMsg = translateErrors(error.code);
+        Alert.alert(errrorMsg.title, errrorMsg.description);
       });
   }
 
