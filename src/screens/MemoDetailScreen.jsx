@@ -11,7 +11,7 @@ export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
   const { id } = route.params;
   console.log(id);
-  const [memo,setMemo] = useState(null);
+  const [memo, setMemo] = useState(null);
 
   useEffect(() => {
     const { currentUser } = firebase.auth();
@@ -46,7 +46,7 @@ export default function MemoDetailScreen(props) {
       <CircleButton
         style={{ top: 60, buttom: 'auto' }}
         name="edit-2"
-        onPress={() => { navigation.navigate('MemoEdit'); }}
+        onPress={() => { navigation.navigate('MemoEdit', { id: memo.id, bodyText: memo.bodyText }); }}
       />
     </View>
   );
