@@ -3,6 +3,7 @@ import {
   View, TextInput, StyleSheet, KeyboardAvoidingView,
 } from 'react-native';
 import firebase from 'firebase';
+import { func } from 'prop-types';
 
 import CircleButton from '../components/CircleButton';
 
@@ -13,7 +14,7 @@ export default function MemoCreateScreen(props) {
   function handlePress() {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
-    const ref = db.collection(`users/${currentUser.uid}/'memos'`);
+    const ref = db.collection(`users/${currentUser.uid}/memos`);
     ref.add({
       bodyText,
       updatedAt: new Date(),
